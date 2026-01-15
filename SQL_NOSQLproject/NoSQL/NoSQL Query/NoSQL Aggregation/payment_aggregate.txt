@@ -1,0 +1,29 @@
+Input:
+db.orders.aggregate([
+  { $unwind: "$payments" },
+  {
+    $group: {
+      _id: "$payments.transaction_status",
+      total_amount: { $sum: "$payments.amount" },
+      total_transactions: { $sum: 1 }
+    }
+  }
+])
+
+
+Output:
+{
+  _id: 'Failed',
+  total_amount: 541406.89,
+  total_transactions: 1500
+}
+{
+  _id: 'Pending',
+  total_amount: 526570.63,
+  total_transactions: 1500
+}
+{
+  _id: 'Completed',
+  total_amount: 4316672.21,
+  total_transactions: 12000
+}

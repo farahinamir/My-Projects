@@ -1,0 +1,115 @@
+# TOP SELLING PRODUCTS
+db.getCollection('orders').aggregate(
+  [
+    { $unwind: { path: '$order_items' } },
+    {
+      $group: {
+        _id: '$order_items.product_id',
+        total_quantity_sold: {
+          $sum: '$order_items.quantity'
+        },
+        total_revenue: {
+          $sum: {
+            $multiply: [
+              '$order_items.quantity',
+              '$order_items.price_at_purchase'
+            ]
+          }
+        }
+      }
+    },
+    {
+      $lookup: {
+        from: 'products',
+        localField: '_id',
+        foreignField: 'product_id',
+        as: 'productDetails'
+      }
+    },
+    { $unwind: { path: '$productDetails' } },
+    {
+      $project: {
+        _id: 0,
+        product_id: '$_id',
+        product_name:
+          '$productDetails.product_name',
+        total_quantity_sold: 1,
+        total_revenue: 1
+      }
+    },
+    { $sort: { total_revenue: -1 } }
+  ],
+  { maxTimeMS: 60000, allowDiskUse: true }
+);
+
+
+
+
+#LOW SELLLING PRODUCTS
+db.getCollection('orders').aggregate(
+  [
+    { $unwind: '$order_items' },
+    {
+      $lookup: {
+        from: 'products',
+        localField: 'order_items.product_id',
+        foreignField: 'product_id',
+        as: 'product_info'
+      }
+    },
+    { $unwind: { path: '$product_info' } },
+    {
+      $group: {
+        _id: '$product_info.product_name',
+        total_sold: {
+          $sum: '$order_items.quantity'
+        }
+      }
+    },
+    { $sort: { total_sold: 1 } },
+    {
+      $project: {
+        _id: 0,
+        product_name: '$_id',
+        total_sold: 1
+      }
+    }
+  ],
+  { maxTimeMS: 30000, allowDiskUse: true }
+);
+
+
+#Supplier Performance Analysis
+
+db.getCollection('orders').aggregate(
+  [
+    { $unwind: '$order_items' },
+    {
+      $lookup: {
+        from: 'products',
+        localField: 'order_items.product_id',
+        foreignField: 'product_id',
+        as: 'product'
+      }
+    },
+    { $unwind: '$product' },
+    { $unwind: '$product.suppliers' },
+    {
+      $group: {
+        _id: {
+          supplier_id: '$product.suppliers._id',
+          supplier_name:
+            '$product.suppliers.supplier_name',
+          product_name: '$product.product_name'
+        },
+        total_sold: {
+          $sum: '$order_items.quantity'
+        }
+      }
+    },
+    { $sort: { total_sold: -1 } }
+  ],
+  { maxTimeMS: 60000, allowDiskUse: true }
+);
+
+

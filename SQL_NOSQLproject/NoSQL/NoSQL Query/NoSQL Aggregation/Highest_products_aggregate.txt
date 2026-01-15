@@ -1,0 +1,38 @@
+Input:
+db.products.aggregate([
+  {
+    $group: {
+      _id: "$category",
+      max_price: { $max: "$price" },
+      product: { $first: "$$ROOT" }  // Store product details
+    }
+  },
+  {
+    $project: {
+      category: "$_id",
+      product_name: "$product.product_name",
+      min_price: "$max_price"
+    }
+  }
+])
+
+
+Output:
+{
+  _id: 'Accessories',
+  category: 'Accessories',
+  product_name: 'Desk Mat',
+  min_price: 994.32
+}
+{
+  _id: 'Electronics',
+  category: 'Electronics',
+  product_name: 'Document Scanner',
+  min_price: 999.92
+}
+{
+  _id: 'Home & Kitchen',
+  category: 'Home & Kitchen',
+  product_name: 'Coffee Maker',
+  min_price: 998.67
+}

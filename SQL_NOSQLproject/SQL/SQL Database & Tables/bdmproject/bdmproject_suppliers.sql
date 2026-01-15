@@ -1,0 +1,55 @@
+-- MySQL dump 10.13  Distrib 8.0.41, for Win64 (x86_64)
+--
+-- Host: localhost    Database: bdmproject
+-- ------------------------------------------------------
+-- Server version	9.2.0
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `suppliers`
+--
+
+DROP TABLE IF EXISTS `suppliers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `suppliers` (
+  `supplier_id` int NOT NULL,
+  `supplier_name` varchar(255) DEFAULT NULL,
+  `contact_name` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `phone_number` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`supplier_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `suppliers`
+--
+
+LOCK TABLES `suppliers` WRITE;
+/*!40000 ALTER TABLE `suppliers` DISABLE KEYS */;
+INSERT INTO `suppliers` VALUES (501,'Dynamic Systems Group','Donald Benjamin',' MA','555-484-6922','dbenjamin@supplier.com'),(502,'Dynamic Systems Group','Nicholas Dennis',' FM','555-397-6986','ndennis@supplier.com'),(503,'Mega Suppliers','Catherine Moore',' SD','555-240-4096','cmoore@supplier.com'),(504,'Tech Supplies Inc.','Linda Virginia',' OR','555-624-2518','lvirginia@supplier.com'),(505,'Ultimate Services','Mark Samuel',' LA','555-295-9426','msamuel@supplier.com'),(506,'Future Tech','Elizabeth Henry',' WA','555-588-6666','ehenry@supplier.com'),(507,'Core Technologies','Nicholas Rodriguez',' SC','555-358-7736','nrodriguez@supplier.com'),(508,'Unified Trading Co.','Emily Davis',' FL','555-462-4258','edavis@supplier.com'),(509,'Unified Trading Co.','Deborah Jane',' CT','555-655-0661','djane@supplier.com'),(510,'Precision Suppliers LLC','Nicholas Lauren',' NM','555-047-4283','nlauren@supplier.com'),(511,'Smart Solutions Ltd.','Steven Samuel',' MN','555-038-3373','ssamuel@supplier.com'),(512,'Innovative Solutions Co.','Eric Ralph',' DC','555-845-7437','eralph@supplier.com'),(513,'Tech Supplies Inc.','Stephen Benjamin',' MT','555-562-3858','sbenjamin@supplier.com'),(514,'Strategic Partners Co.','Sarah Taylor',' AZ','555-760-5368','staylor@supplier.com'),(515,'Advance Dynamics','Stephanie Williams',' NC','555-310-7349','swilliams@supplier.com'),(516,'Summit Solutions Corp.','Jessica Davis',' NC','555-311-1372','jdavis@supplier.com'),(517,'Advanced Hardware Corp.','George Rose',' KY','555-858-9272','grose@supplier.com'),(518,'Ultimate Services','Emma Judith',' CT','555-301-5718','ejudith@supplier.com'),(519,'Strategic Partners Co.','Laura Madison',' NY','555-397-6986','lmadison@supplier.com'),(520,'Unified Trading Co.','Eric Lauren',' DE','555-358-7736','elauren@supplier.com'),(521,'Digital Innovations LLC','Steven Williams',' MH','555-842-3189','swilliams@supplier.com'),(522,'Modern Tech Enterprises','Lisa Diana',' MP','555-248-6013','ldiana@supplier.com'),(523,'Core Technologies','Jessica Jackson',' NV','555-588-6666','jjackson@supplier.com'),(524,'Mega Suppliers','Amanda Henry',' MS','555-446-1891','ahenry@supplier.com'),(525,'Elite Electronics','Steven Lopez',' MT','555-430-0166','slopez@supplier.com'),(526,'Excel Distribution Group','Eric Dennis',' MI','555-284-7941','edennis@supplier.com'),(527,'Innovative Solutions Co.','Andrew Madison',' AS','555-141-6342','amadison@supplier.com'),(528,'Core Technologies','John Dorothy',' MH','555-812-9082','jdorothy@supplier.com'),(529,'Excel Distribution Group','Laura Jones',' WY','555-710-3865','ljones@supplier.com'),(530,'Tech Supplies Inc.','George Wilson',' KY','555-104-4645','gwilson@supplier.com'),(531,'Global Goods Ltd.','Christine Gerald',' FM','555-240-4096','cgerald@supplier.com'),(532,'Alpha Industries Ltd.','Linda Thomas',' AK','555-362-6346','lthomas@supplier.com'),(533,'Strategic Partners Co.','Christine Wayne',' VI','555-471-0791','cwayne@supplier.com'),(534,'Modern Tech Enterprises','Michael Diana',' WY','555-123-9483','mdiana@supplier.com'),(535,'Tech Supplies Inc.','Margaret Philip',' FL','555-271-6257','mphilip@supplier.com'),(536,'Premier Logistics Inc.','Donald Walter',' MO','555-990-7732','dwalter@supplier.com'),(537,'Advanced Hardware Corp.','Rebecca Miller',' VI','555-458-8906','rmiller@supplier.com'),(538,'Premier Logistics Inc.','Margaret Virginia',' AZ','555-644-8154','mvirginia@supplier.com'),(539,'Professional Supply Chain','Margaret Anderson',' RI','555-141-6342','manderson@supplier.com'),(540,'Premier Logistics Inc.','Sandra Lopez',' KY','555-271-6257','slopez@supplier.com'),(541,'Elite Electronics','Linda Grace',' MH','555-047-4283','lgrace@supplier.com'),(542,'Next Level Systems','Joseph Rodriguez',' SC','555-644-8154','jrodriguez@supplier.com'),(543,'Unified Trading Co.','Christopher Peter',' KY','555-845-7437','cpeter@supplier.com'),(544,'Next Level Systems','Jacob Diana',' OK','555-925-5891','jdiana@supplier.com'),(545,'Elite Electronics','David Cynthia',' OK','555-804-7037','dcynthia@supplier.com'),(546,'Ultimate Services','Gary Adam',' WA','555-362-6346','gadam@supplier.com'),(547,'Mega Suppliers','Paul Abigail',' SC','555-562-3858','pabigail@supplier.com'),(548,'Advance Dynamics','Rebecca Roger',' CO','555-726-6018','rroger@supplier.com'),(549,'Excel Distribution Group','Donald Jane',' OK','555-567-3979','djane@supplier.com'),(550,'Reliable Resources Inc.','Paul Julia',' MS','555-673-0033','pjulia@supplier.com'),(551,'Dynamic Systems Group','Lisa Jane',' IN','555-718-9588','ljane@supplier.com'),(552,'Strategic Partners Co.','Rebecca Dorothy',' MN','555-248-6013','rdorothy@supplier.com'),(553,'Innovative Solutions Co.','Donna Dennis',' GU','555-382-6251','ddennis@supplier.com'),(554,'Summit Solutions Corp.','Eric Rose',' PA','555-072-5689','erose@supplier.com'),(555,'Future Tech','Rachel Roger',' ND','555-274-1326','rroger@supplier.com'),(556,'Mega Suppliers','Sarah Lopez',' RI','555-116-2735','slopez@supplier.com'),(557,'Next Level Systems','Catherine Moore',' OH','555-319-7651','cmoore@supplier.com'),(558,'Modern Tech Enterprises','Stephen Philip',' WI','555-382-6251','sphilip@supplier.com'),(559,'Innovative Solutions Co.','Kevin Scott',' WA','555-446-5896','kscott@supplier.com'),(560,'Precision Suppliers LLC','Daniel Cynthia',' IL','555-193-8242','dcynthia@supplier.com'),(561,'Global Goods Ltd.','George Virginia',' WA','555-141-6342','gvirginia@supplier.com'),(562,'Alpha Industries Ltd.','Barbara Maria',' MI','555-673-0033','bmaria@supplier.com'),(563,'Modern Tech Enterprises','Edward Taylor',' WY','555-588-6666','etaylor@supplier.com'),(564,'Future Tech','Joseph Natalie',' AL','555-362-6346','jnatalie@supplier.com'),(565,'Advanced Hardware Corp.','Jeffrey Hernandez',' FM','555-123-9483','jhernandez@supplier.com'),(566,'Next Level Systems','Elizabeth Ruth',' NJ','555-726-6018','eruth@supplier.com'),(567,'Ultimate Services','Daniel Walter',' PR','555-274-1326','dwalter@supplier.com'),(568,'Strategic Partners Co.','Donna Judith',' PR','555-925-5891','djudith@supplier.com'),(569,'Next Level Systems','George Lauren',' AS','555-470-7017','glauren@supplier.com'),(570,'Quantum Enterprises','Stephanie Madison',' MP','555-779-5104','smadison@supplier.com'),(571,'Ultimate Services','Donald Taylor',' HI','555-467-5786','dtaylor@supplier.com'),(572,'Next Level Systems','Joseph Smith',' WI','555-710-3865','jsmith@supplier.com'),(573,'Professional Supply Chain','Melissa Anna',' DE','555-823-7316','manna@supplier.com'),(574,'Modern Tech Enterprises','Gary Hernandez',' AS','555-037-0931','ghernandez@supplier.com'),(575,'Digital Innovations LLC','Andrew Benjamin',' CA','555-047-4283','abenjamin@supplier.com'),(576,'Advance Dynamics','Timothy Wilson',' MA','555-507-3393','twilson@supplier.com'),(577,'Advanced Hardware Corp.','Lisa Wayne',' ND','555-718-9588','lwayne@supplier.com'),(578,'Modern Tech Enterprises','Olivia Martinez',' IN','555-471-0791','omartinez@supplier.com'),(579,'Precision Suppliers LLC','Emma Dorothy',' AK','555-888-3303','edorothy@supplier.com'),(580,'Summit Solutions Corp.','William Frank',' AK','555-636-2063','wfrank@supplier.com'),(581,'Digital Innovations LLC','Laura Davis',' FM','555-775-3047','ldavis@supplier.com'),(582,'Next Level Systems','Lisa Martinez',' NC','555-359-0938','lmartinez@supplier.com'),(583,'Reliable Resources Inc.','Nancy Jackson',' MA','555-851-5653','njackson@supplier.com'),(584,'Core Technologies','Barbara Sophia',' CA','555-567-2433','bsophia@supplier.com'),(585,'Mega Suppliers','Ryan Bruce',' MO','555-888-3303','rbruce@supplier.com'),(586,'Excel Distribution Group','James Arthur',' CO','555-921-5498','jarthur@supplier.com'),(587,'Advance Dynamics','Gary Madison',' AR','555-842-3189','gmadison@supplier.com'),(588,'Premier Logistics Inc.','Mary Jones',' CT','555-921-5498','mjones@supplier.com'),(589,'Dynamic Systems Group','Emily Rodriguez',' MI','555-470-7017','erodriguez@supplier.com'),(590,'Alpha Industries Ltd.','Helen Peter',' OH','555-008-5612','hpeter@supplier.com'),(591,'Global Goods Ltd.','Nicholas Anderson',' KS','555-430-0166','nanderson@supplier.com'),(592,'Reliable Resources Inc.','Ashley Gerald',' RI','555-643-4825','agerald@supplier.com'),(593,'Professional Supply Chain','Christine Walter',' MO','555-359-0938','cwalter@supplier.com'),(594,'Ultimate Services','Kenneth Anderson',' CA','555-655-0661','kanderson@supplier.com'),(595,'Precision Suppliers LLC','Ryan Arthur',' IA','555-888-3303','rarthur@supplier.com'),(596,'Unified Trading Co.','Melissa Victoria',' PA','555-038-3373','mvictoria@supplier.com'),(597,'Precision Suppliers LLC','Jeffrey Wayne',' AZ','555-319-7651','jwayne@supplier.com'),(598,'Premier Logistics Inc.','Elizabeth Moore',' PR','555-718-9588','emoore@supplier.com'),(599,'Quantum Enterprises','Brian Lauren',' PR','555-633-3584','blauren@supplier.com'),(600,'Next Level Systems','Gary Amy',' MO','555-527-3715','gamy@supplier.com');
+/*!40000 ALTER TABLE `suppliers` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2025-01-23  6:45:47

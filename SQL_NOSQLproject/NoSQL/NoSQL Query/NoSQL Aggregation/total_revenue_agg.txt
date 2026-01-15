@@ -1,0 +1,112 @@
+Input:
+db.orders.aggregate([
+  { $unwind: "$order_items" },
+  {
+    $group: {
+      _id: "$order_items.product_id",
+      total_quantity_sold: { $sum: "$order_items.quantity" },
+      total_revenue: {
+        $sum: { $multiply: ["$order_items.quantity", "$order_items.price_at_purchase"] }
+      }
+    }
+  },
+  { $sort: { total_revenue: -1 } }  // Sort by highest revenue
+])
+
+
+Output:
+{
+  _id: 697,
+  total_quantity_sold: 92,
+  total_revenue: 63822.93
+}
+{
+  _id: 1186,
+  total_quantity_sold: 117,
+  total_revenue: 61073.42
+}
+{
+  _id: 1012,
+  total_quantity_sold: 98,
+  total_revenue: 59233.99
+}
+{
+  _id: 1181,
+  total_quantity_sold: 107,
+  total_revenue: 57196.17
+}
+{
+  _id: 1844,
+  total_quantity_sold: 104,
+  total_revenue: 56872.6
+}
+{
+  _id: 936,
+  total_quantity_sold: 82,
+  total_revenue: 55811.020000000004
+}
+{
+  _id: 429,
+  total_quantity_sold: 103,
+  total_revenue: 55027.950000000004
+}
+{
+  _id: 670,
+  total_quantity_sold: 118,
+  total_revenue: 53935.18
+}
+{
+  _id: 986,
+  total_quantity_sold: 119,
+  total_revenue: 53684.79
+}
+{
+  _id: 309,
+  total_quantity_sold: 87,
+  total_revenue: 53674.71
+}
+{
+  _id: 1308,
+  total_quantity_sold: 120,
+  total_revenue: 53164.29
+}
+{
+  _id: 1563,
+  total_quantity_sold: 102,
+  total_revenue: 53119.72
+}
+{
+  _id: 1707,
+  total_quantity_sold: 89,
+  total_revenue: 52762.82
+}
+{
+  _id: 1312,
+  total_quantity_sold: 86,
+  total_revenue: 52630.35
+}
+{
+  _id: 1282,
+  total_quantity_sold: 106,
+  total_revenue: 52237.86
+}
+{
+  _id: 1223,
+  total_quantity_sold: 91,
+  total_revenue: 51951.11
+}
+{
+  _id: 1586,
+  total_quantity_sold: 92,
+  total_revenue: 51752.21
+}
+{
+  _id: 1886,
+  total_quantity_sold: 95,
+  total_revenue: 49338.92
+}
+{
+  _id: 424,
+  total_quantity_sold: 94,
+  total_revenue: 48969.44
+}

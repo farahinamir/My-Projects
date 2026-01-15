@@ -1,0 +1,82 @@
+Input:
+db.customers.aggregate([
+  { $group: { _id: "$city", customers_by_city: { $sum: 1 } } }
+])
+
+Output:
+{
+  _id: ' VI',
+  customers_by_city: 140
+}
+{
+  _id: ' NH',
+  customers_by_city: 140
+}
+{
+  _id: ' DE',
+  customers_by_city: 210
+}
+{
+  _id: ' AK',
+  customers_by_city: 140
+}
+{
+  _id: ' AL',
+  customers_by_city: 140
+}
+{
+  _id: ' GA',
+  customers_by_city: 210
+}
+{
+  _id: ' VT',
+  customers_by_city: 140
+}
+{
+  _id: ' TX',
+  customers_by_city: 210
+}
+{
+  _id: ' MO',
+  customers_by_city: 140
+}
+{
+  _id: ' AS',
+  customers_by_city: 140
+}
+{
+  _id: ' DC',
+  customers_by_city: 140
+}
+{
+  _id: ' OR',
+  customers_by_city: 210
+}
+{
+  _id: ' MP',
+  customers_by_city: 140
+}
+{
+  _id: ' ND',
+  customers_by_city: 140
+}
+{
+  _id: ' AR',
+  customers_by_city: 140
+}
+{
+  _id: ' KY',
+  customers_by_city: 140
+}
+{
+  _id: ' NY',
+  customers_by_city: 210
+}
+{
+  _id: ' PR',
+  customers_by_city: 140
+}
+{
+  _id: ' LA',
+  customers_by_city: 140
+}

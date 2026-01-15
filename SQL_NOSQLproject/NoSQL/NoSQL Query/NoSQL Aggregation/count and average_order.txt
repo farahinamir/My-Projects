@@ -1,0 +1,21 @@
+1. Customer count:
+
+input: 
+db.customers.countDocuments({})
+
+output:
+>10000
+
+
+2. Average order
+
+input:
+db.orders.aggregate([
+  { $group: { _id: null, avg_order_value: { $avg: "$total_price" } } }
+])
+
+Output:
+{
+  _id: null,
+  avg_order_value: 2833.0469873333336
+}

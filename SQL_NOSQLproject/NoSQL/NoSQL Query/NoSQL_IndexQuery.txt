@@ -1,0 +1,20 @@
+
+#Index For Customers Table
+
+db["customers"].createIndex({ first_name: -1 });
+first_name_-1
+
+#Index Query For Orders
+
+db["orders"].createIndex({ total_price: 1 });
+total_price_1
+
+#Index Query For Products
+
+db["products"].createIndex({ category: -1 });
+category_-1
+
+#Index Query For Reviews
+
+db["reviews"].createIndex({ rating: -1 });
+rating_-1

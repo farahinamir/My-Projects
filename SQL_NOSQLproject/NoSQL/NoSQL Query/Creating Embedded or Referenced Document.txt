@@ -1,0 +1,96 @@
+--creating orders collection (embedded document)--
+
+db.orders.aggregate([
+  {
+    $lookup: {
+      from: "order_items",
+      localField: "order_id",
+      foreignField: "order_id",
+      as: "order_items"
+    }
+  },
+  {
+    $lookup: {
+      from: "payments",
+      localField: "order_id",
+      foreignField: "order_id",
+      as: "payments"
+    }
+  },
+  {
+    $lookup: {
+      from: "shipments",
+      localField: "order_id",
+      foreignField: "order_id",
+      as: "shipments"
+    }
+  },
+  {
+    $project: {
+      "order_items.order_id": 0,       
+      "order_items.order_item_id": 0, 
+			"payments.payment_id": 0, 
+      "payments.order_id": 0, 
+			"shipments.shipment_id": 0,          
+      "shipments.order_id": 0           
+    }
+  },
+  {
+    $merge: {
+      into: "orders_embedded",
+      whenMatched: "merge",
+      whenNotMatched: "insert"
+    }
+  }
+], { allowDiskUse: true });
+
+--creating products collection (embedded document)--
+
+db.products.aggregate([
+  {
+    $lookup: {
+      from: "suppliers",
+      localField: "supplier_id",
+      foreignField: "supplier_id",
+      as: "suppliers"  
+    }
+  },
+  {
+    $project: {
+      supplier_id: 0,                   
+      "suppliers.supplier_id": 0  
+    }
+  },
+  {
+    $merge: {
+      into: "embedded_products",
+      whenMatched: "merge",
+      whenNotMatched: "insert"
+    }
+  }
+]);
+
+--creating reviews collection (referenced documents)--
+
+db.reviews.find().forEach(function(review) {
+  const customer = db.customers.findOne({ customer_id: review.customer_id });
+  const product = db.products.findOne({ product_id: review.product_id });
+  
+  db.reviews.updateOne(
+    { _id: review._id },
+    { 
+      $set: { 
+        customer_ref: customer ? customer._id : null, 
+        product_ref: product ? product._id : null 
+      } 
+    }
+  );
+});
+
+
+db.reviews.updateMany(
+  {},
+  { $unset: { product_id: "", customer_id: "" } }
+);
+
+
